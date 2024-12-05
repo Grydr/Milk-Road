@@ -8,8 +8,11 @@ def generate_account_data(num_accounts=50):
     # Sample names for demonstration
     sample_names = [
         "John Smith", "Maria Garcia", "David Lee", "Sarah Johnson", "Mohammed Ahmed",
-        "Emma Wilson", "Luis Rodriguez", "Anna Kowalski", "Chen Wei", "Priya Patel"
-    ] * 5  # Multiply list to get more names
+        "Emma Wilson", "Luis Rodriguez", "Anna Kowalski", "Chen Wei", "Priya Patel", "Ethan Parker",
+        "Sophia Ramirez", "Liam Anderson", "Ava Thompson", "Oliver Martinez", "Emma Collins", "Noah Rivera",
+        "Mia Bennett", "Lucas Hernandez", "Amelia Johnson", "Mason Cooper", "Isabella Gray", "Jack Stevens", "Charlotte King",
+        "Benjamin Walker", "Lily Scott", "Samuel Mitchell", "Grace Carter", "Alexander Morris", "Zoe Harris"
+    ]  # Multiply list to get more names
     
     accounts = []
     for name in sample_names[:num_accounts]:
@@ -17,8 +20,8 @@ def generate_account_data(num_accounts=50):
         account_id = hashlib.sha256(name.encode()).hexdigest()[:10]
         accounts.append({
             'account_id': account_id,
-            'name_hash': hashlib.sha256(name.encode()).hexdigest()[:30],  # Full hash stored
-            'created_at': datetime.now() - timedelta(days=random.randint(0, 365))
+            'name_hash': hashlib.sha256(name.encode()).hexdigest()[:30]  # Full hash stored
+            # 'created_at': datetime.now() - timedelta(days=random.randint(0, 365))
         })
     
     return pd.DataFrame(accounts)
